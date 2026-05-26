@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
 [![](https://jitpack.io/v/ZrdJ/java-identifiers.svg)](https://jitpack.io/#ZrdJ/java-identifiers)
-![GitHub Workflow Status (branch)](https://github.com/zrdj/java-identifiers/actions/workflows/maven.yml/badge.svg)
+![GitHub Workflow Status (branch)](https://github.com/ZrdJ/java-identifiers/actions/workflows/build.yml/badge.svg)
 
 # java-identifiers
 
