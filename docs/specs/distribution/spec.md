@@ -9,23 +9,27 @@ updated: 2026-09-01
 Makes the library obtainable as a versioned Maven dependency without a
 Maven Central publish: JitPack builds the artifact directly from this
 GitHub repository's tags, and a GitHub release both triggers that build and
-keeps the version documented in the README current. Every push is verified
+keeps the version documented in the README current. Every push is built
 against the range of JDKs the library targets.
 
 ## Requirements
 
-### Requirement: The library is built and tested against every supported JDK on each push
+### Requirement: The library is built and packaged against every supported JDK on each push
 `req~distribution.jdk-compatibility-build~1`
 
-`.github/workflows/build.yml` must run `mvn verify` for every push to any
-branch, once each for JDK 11, 17 and 21. A further push to the same branch
-must cancel the still-running build for the previous push on that branch.
+`.github/workflows/build.yml` must run `mvn -B -ntp verify` for every push
+to any branch, once each for JDK 11, 17 and 21. `src` contains no test
+files and `pom.xml` declares no test dependency, so `verify` compiles and
+packages the artifact (plus its sources and Javadoc jars) without running
+any tests. A further push to the same branch must cancel the still-running
+build for the previous push on that branch.
 
 #### Scenario: Push to a branch
 
 - **WHEN** a commit is pushed to any branch
-- **THEN** `mvn verify` runs once under JDK 11, once under JDK 17 and once
-  under JDK 21
+- **THEN** `mvn -B -ntp verify` runs once under JDK 11, once under JDK 17
+  and once under JDK 21, compiling and packaging the artifact without
+  executing any tests
 
 #### Scenario: Second push while the first build is still running
 
