@@ -12,7 +12,7 @@ identifiers via `Identifiers.*` and encodes/decodes them to `String` via matchin
 `Codec` implementations from `Codecs.*`.
 
 Repo-specific knowledge. What concerns more than this repo lives in the knowledge layer
-of the WS root (`~/workspaces/personal/docs/`).
+of the WS root (`~/workspaces/personal/.docs/`).
 
 ## Folders
 
